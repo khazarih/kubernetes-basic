@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-webservice
+  labels:
+    name: webservice
+
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      name: webservice
+  template:
+    metadata:
+      name: webservice
+      labels:
+        name: webservice
+    spec:
+      containers:
+      - name: myapp
+        image: 192.168.0.111:5000/myapp
